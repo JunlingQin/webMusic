@@ -22,32 +22,15 @@ module.exports = {
         https: false,
         hotOnly: true,
         proxy: {
-            '/splcloud': {
+            '/api/*': {
                 target: 'https://c.y.qq.com',
                 changeOrigin: true,
                 secure: true,
                 headers: {
                     referer: 'https://y.qq.com/',
                     host: 'c.y.qq.com'
-                }
-            },
-            '/lyric': {
-                target: 'https://c.y.qq.com',
-                changeOrigin: true,
-                secure: true,
-                headers: {
-                    referer: 'https://y.qq.com/portal/player.html',
-                    host: 'c.y.qq.com'
-                }
-            },
-            '/qzone': {
-                target: 'https://c.y.qq.com',
-                changeOrigin: true,
-                secure: true,
-                headers: {
-                    referer: 'https://y.qq.com/n/yqq',
-                    host: 'c.y.qq.com'
-                }
+                },
+                pathRewrite: {'^/api': ''}
             }
         }
         // after(app) {

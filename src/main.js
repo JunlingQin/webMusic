@@ -4,8 +4,14 @@ import router from './router'
 import store from './store'
 import App from './App.vue'
 import VueLazyLoad from 'vue-lazyload'
+import axios from 'axios'
 
 import '@/common/stylus/index.styl'
+
+const isDev = process.env.NODE_ENV === 'production' ? false : true
+if (isDev) {
+  axios.defaults.baseURL = "/api"
+}
 
 Vue.use(VueLazyLoad, {
   loading: require('common/image/default.png')

@@ -17,6 +17,9 @@ const SingerDetail = () =>
   import ( /* webpackChunkName: "singer-detail" */ "components/singer-detail/singer-detail");
 const Disc = () =>
   import ( /* webpackChunkName: "singer-detail" */ "components/disc/disc");
+const Toplist = () =>
+  import ( /* webpackChunkName: "top-list" */ "components/top-list/top-list");
+
 
 
 Vue.use(Router);
@@ -44,7 +47,11 @@ export default new Router({
     },
     {
       path: "/rank",
-      component: Rank
+      component: Rank,
+      children: [{
+        path: ':id',
+        component: Toplist
+      }]
     },
     {
       path: "/search",
